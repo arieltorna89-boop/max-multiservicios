@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+
+@theme {
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
+
+  --color-navy: #0A1F3D;
+  --color-navy-light: #0F2A52;
+  --color-brand: #1B4D8C;
+  --color-accent: #5B9EE0;
+  --color-bone: #F8FAFC;
+  --color-slate: #64748B;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bone);
+  color: var(--color-navy);
+}
+
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+/* Grid tipo blueprint — elemento de firma sobre fondos oscuros */
+.blueprint-grid {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
