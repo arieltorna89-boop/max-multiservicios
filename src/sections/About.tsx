@@ -265,7 +265,7 @@ export default function About() {
               En{" "}
               <strong className="text-navy">
                 Max Multiservicios
-              </strong>
+              </strong>{" "}
               creamos soluciones integrales para personas,
               emprendedores y empresas, combinando servicios
               digitales, comercio electrónico y tecnología.
