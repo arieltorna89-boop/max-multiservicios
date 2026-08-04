@@ -19,32 +19,20 @@ function SocialIcon({ name }: { name: string }) {
 export default function Footer() {
   return (
     <footer className="bg-navy text-white mt-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 md:py-12">
 
-        <div className="grid lg:grid-cols-4 gap-12">
+        <div className="grid gap-10 lg:grid-cols-4 lg:gap-10">
 
           {/* Logo */}
 
           <div>
-            <div className="flex items-center gap-3">
+            <img
+              src="/logomax.png"
+              alt="MAX Multiservicios"
+              className="h-14 w-auto md:h-16"
+            />
 
-              <div className="w-12 h-12 rounded-xl bg-brand flex items-center justify-center font-bold text-lg">
-                M
-              </div>
-
-              <div>
-                <h3 className="font-bold text-xl">
-                  MAX
-                </h3>
-
-                <p className="font-serif italic text-accent">
-                  Multiservicios
-                </p>
-              </div>
-
-            </div>
-
-            <p className="mt-6 text-slate-300 leading-7">
+            <p className="mt-4 text-sm text-slate-300 leading-6">
               Soluciones integrales para personas y empresas.
               Tecnología, comercio electrónico y marketing
               digital en un solo lugar.
@@ -55,11 +43,11 @@ export default function Footer() {
 
           <div>
 
-            <h4 className="font-semibold mb-5">
+            <h4 className="font-semibold text-sm mb-4">
               Navegación
             </h4>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2.5 text-sm">
 
               {NAV_LINKS.map((link) => (
                 <a
@@ -79,16 +67,15 @@ export default function Footer() {
 
           <div>
 
-            <h4 className="font-semibold mb-5">
+            <h4 className="font-semibold text-sm mb-4">
               Servicios
             </h4>
 
-            <div className="space-y-3 text-slate-300">
+            <div className="space-y-2.5 text-sm text-slate-300">
 
               <p>Marketing Digital</p>
 
               <p>Tienda Online</p>
-
 
             </div>
 
@@ -98,42 +85,43 @@ export default function Footer() {
 
           <div>
 
-            <h4 className="font-semibold mb-5">
+            <h4 className="font-semibold text-sm mb-4">
               Contacto
             </h4>
 
-            <div className="space-y-4 text-slate-300">
+            <div className="space-y-3 text-sm text-slate-300">
 
               <div className="flex items-center gap-3">
-                <FaEnvelope className="text-accent" />
-                <span>info@maxmultiservicios.com</span>
+                <FaEnvelope className="text-accent shrink-0" />
+                <span className="break-words">info@maxmultiservicios.com</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <FaPhoneAlt className="text-accent" />
+                <FaPhoneAlt className="text-accent shrink-0" />
                 <span>+53 XXX XXX XXX</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-accent" />
+                <FaMapMarkerAlt className="text-accent shrink-0" />
                 <span>Cuba</span>
               </div>
 
-              <div className="flex gap-4 pt-3">
+              <div className="flex gap-3 pt-2">
 
                 {SOCIAL_LINKS.map((social) => (
                   <a
                     key={social.name}
                     href={social.href}
                     className="
-                    w-10
-                    h-10
+                    w-9
+                    h-9
                     rounded-full
                     border
                     border-slate-600
                     flex
                     items-center
                     justify-center
+                    text-sm
                     hover:bg-brand
                     hover:border-brand
                     transition"
@@ -153,7 +141,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-navy-light">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-slate-400">
           <p>
             © {new Date().getFullYear()} MAX Multiservicios. Todos los derechos reservados.
           </p>

@@ -1,3 +1,4 @@
+import ScrollReveal from "./components/ui/ScrollReveal";
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Hero from './sections/Hero'
@@ -12,10 +13,22 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Services />
-        <WhyUs />
-        <Contact />
+
+        <ScrollReveal as="section">
+          <About />
+        </ScrollReveal>
+
+        <ScrollReveal as="section">
+          <Services />
+        </ScrollReveal>
+
+        <ScrollReveal as="section">
+          <WhyUs />
+        </ScrollReveal>
+
+        <ScrollReveal as="section">
+          <Contact />
+        </ScrollReveal>
       </main>
       <Footer />
     </div>

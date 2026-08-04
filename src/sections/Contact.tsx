@@ -58,12 +58,12 @@ const CONTACT_CARDS = [
 
 export default function Contact() {
   return (
-    <section id="contacto" className="relative overflow-hidden py-24">
+    <section id="contacto" className="relative overflow-hidden py-16 md:py-24">
       {/* Luz decorativa, consistente con Hero / About */}
       <div className="absolute -left-40 bottom-0 h-[420px] w-[420px] rounded-full bg-brand/5 blur-[150px]" />
       <div className="absolute -right-32 top-10 h-[360px] w-[360px] rounded-full bg-brand/5 blur-[140px]" />
 
-      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-10">
         {/* Encabezado a todo el ancho, para no desperdiciar la franja superior */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,10 +73,10 @@ export default function Contact() {
           className="max-w-2xl"
         >
           <Badge dark={false}>Contacto</Badge>
-          <h2 className="mt-5 text-3xl font-medium leading-tight text-navy md:text-4xl">
+          <h2 className="mt-5 text-2xl font-medium leading-tight text-navy sm:text-3xl md:text-4xl">
             Estamos aquí para <span className="text-brand">ayudarte</span>.
           </h2>
-          <p className="mt-6 max-w-md text-base leading-relaxed text-slate md:text-lg">
+          <p className="mt-4 max-w-md text-base leading-relaxed text-slate sm:mt-6 md:text-lg">
             Contáctanos por el canal que prefieras. Respondemos rápido y con
             la atención que mereces.
           </p>
@@ -84,7 +84,7 @@ export default function Contact() {
 
         {/* Grid principal: WhatsApp destacado a la izquierda ocupando toda la altura,
             correo + teléfono en columna derecha, y redes/horario abajo a todo el ancho */}
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
+        <div className="mt-8 grid gap-3 sm:mt-12 sm:gap-4 md:grid-cols-3">
           {/* Tarjeta destacada de WhatsApp, ocupa 1 columna pero toda la altura del bloque derecho */}
           <motion.a
             href={CONTACT_INFO.whatsappLink}
@@ -92,17 +92,19 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-brand p-6 text-white shadow-lg shadow-brand/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/25 md:row-span-2"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-brand p-5 text-white shadow-lg shadow-brand/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/25 sm:p-6 md:row-span-2"
           >
-            <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10" />
-            <div className="relative">
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15">
+            <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 sm:-right-8 sm:-top-8 sm:h-32 sm:w-32" />
+            <div className="relative min-w-0">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 sm:h-12 sm:w-12">
                 <MessageCircle size={20} />
               </span>
-              <p className="mt-6 text-xs font-medium uppercase tracking-wider text-white/70">
+              <p className="mt-5 text-xs font-medium uppercase tracking-wider text-white/70 sm:mt-6">
                 WhatsApp
               </p>
-              <p className="mt-1 text-xl font-semibold">{CONTACT_INFO.whatsapp}</p>
+              <p className="mt-1 break-words text-lg font-semibold sm:text-xl">
+                {CONTACT_INFO.whatsapp}
+              </p>
               <p className="mt-2 text-sm text-white/70">Respuesta más rápida</p>
             </div>
             <div className="relative mt-8 flex items-center gap-1.5 text-sm font-medium">
@@ -123,17 +125,17 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: (index + 1) * 0.08 }}
-              className="group flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-md"
+              className="group flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-md sm:gap-4 sm:p-5"
             >
-              <div className="flex items-center gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+              <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand sm:h-11 sm:w-11">
                   <card.icon size={18} />
                 </span>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs font-medium uppercase tracking-wider text-slate">
                     {card.label}
                   </p>
-                  <p className="mt-0.5 font-semibold text-navy">{card.value}</p>
+                  <p className="mt-0.5 break-words font-semibold text-navy">{card.value}</p>
                   <p className="mt-0.5 text-xs text-slate">{card.hint}</p>
                 </div>
               </div>
@@ -150,21 +152,23 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.24 }}
-            className="flex flex-col justify-between gap-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:col-span-2 md:flex-row md:items-center"
+            className="flex flex-col gap-5 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5 md:col-span-2 md:flex-row md:items-center md:justify-between md:gap-6"
           >
-            <div className="flex items-center gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+            <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand sm:h-11 sm:w-11">
                 <Clock size={18} />
               </span>
-              <div>
+              <div className="min-w-0">
                 <p className="text-xs font-medium uppercase tracking-wider text-slate">
                   Horario de atención
                 </p>
-                <p className="mt-0.5 font-semibold text-navy">Lunes a viernes, 9 am – 6 pm</p>
+                <p className="mt-0.5 break-words font-semibold text-navy">
+                  Lunes a viernes, 9 am – 6 pm
+                </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 md:border-l md:border-slate-200 md:pl-6">
+            <div className="flex flex-wrap items-center gap-3 border-t border-slate-200 pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate">
                 Síguenos
               </p>
@@ -176,7 +180,7 @@ export default function Contact() {
                       key={social.name}
                       href={social.href}
                       aria-label={social.name}
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate transition-all duration-300 hover:-translate-y-0.5 hover:border-brand hover:text-brand hover:shadow-md"
+                      className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate transition-all duration-300 hover:-translate-y-0.5 hover:border-brand hover:text-brand hover:shadow-md sm:h-10 sm:w-10"
                     >
                       <Icon size={16} />
                     </a>
