@@ -100,103 +100,103 @@ export default function Navbar() {
       {/* Menú móvil tipo sidebar: overlay + panel deslizante desde la derecha */}
       <AnimatePresence>
         {open && (
-          <>
-            <motion.div
-              key="overlay"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="md:hidden fixed inset-0 z-40 bg-navy/50 backdrop-blur-sm"
-              onClick={() => setOpen(false)}
-            />
+          <motion.div
+            key="overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="md:hidden fixed inset-0 z-40 bg-navy/50 backdrop-blur-sm"
+            onClick={() => setOpen(false)}
+          />
+        )}
 
-            <motion.div
-              key="panel"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="
-              md:hidden
-              fixed
-              top-0
-              right-0
-              z-50
-              h-full
-              w-[78%]
-              max-w-xs
-              bg-white
-              shadow-2xl
-              flex
-              flex-col"
-            >
-              <div className="flex items-center justify-between px-6 h-[74px] border-b border-slate-100">
-                <img
-                  src="/logomax.png"
-                  alt="MAX Multiservicios"
-                  className="h-11 w-auto"
-                />
+        {open && (
+          <motion.div
+            key="panel"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="
+            md:hidden
+            fixed
+            top-0
+            right-0
+            z-50
+            h-full
+            w-[78%]
+            max-w-xs
+            bg-white
+            shadow-2xl
+            flex
+            flex-col"
+          >
+            <div className="flex items-center justify-between px-6 h-[74px] border-b border-slate-100">
+              <img
+                src="/logomax.png"
+                alt="MAX Multiservicios"
+                className="h-11 w-auto"
+              />
 
-                <button
+              <button
+                className="
+                w-10
+                h-10
+                flex
+                items-center
+                justify-center
+                rounded-xl
+                text-navy
+                transition-colors
+                duration-300
+                hover:bg-slate-100"
+                onClick={() => setOpen(false)}
+                aria-label="Cerrar menú"
+              >
+                <X size={22} />
+              </button>
+            </div>
+
+            <div className="flex flex-col divide-y divide-slate-100 overflow-y-auto">
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
                   className="
-                  w-10
-                  h-10
+                  group
+                  relative
                   flex
                   items-center
-                  justify-center
-                  rounded-xl
+                  px-6
+                  py-4
+                  font-medium
                   text-navy
                   transition-colors
                   duration-300
-                  hover:bg-slate-100"
-                  onClick={() => setOpen(false)}
-                  aria-label="Cerrar menú"
+                  hover:text-brand
+                  hover:bg-slate-50"
                 >
-                  <X size={22} />
-                </button>
-              </div>
-
-              <div className="flex flex-col divide-y divide-slate-100 overflow-y-auto">
-                {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
+                  <span
                     className="
-                    group
-                    relative
-                    flex
-                    items-center
-                    px-6
-                    py-4
-                    font-medium
-                    text-navy
-                    transition-colors
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-[3px]
+                    scale-y-0
+                    bg-accent
+                    transition-transform
                     duration-300
-                    hover:text-brand
-                    hover:bg-slate-50"
-                  >
-                    <span
-                      className="
-                      absolute
-                      left-0
-                      top-0
-                      h-full
-                      w-[3px]
-                      scale-y-0
-                      bg-accent
-                      transition-transform
-                      duration-300
-                      group-hover:scale-y-100"
-                    />
+                    group-hover:scale-y-100"
+                  />
 
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-          </>
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>
